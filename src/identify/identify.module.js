@@ -23,7 +23,7 @@ const identify = (georaster, geometry) => {
     // iterate through the bands
     // get the row and then the column of the pixel that you want
     if (x > 0 && x < georaster.width && y > 0 && y < georaster.height) {
-      return georaster.values.map(rows => rows[y][x]);
+      return georaster.getValues({ top: y, left: x, width: 1, height: 1 }).map(rows => rows[y][x]);
     } else {
       return null;
     }
